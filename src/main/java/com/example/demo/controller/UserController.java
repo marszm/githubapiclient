@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.entity.CountDetails;
 import com.example.demo.model.UserDto;
 import com.example.demo.repository.CountDetailsRepository;
