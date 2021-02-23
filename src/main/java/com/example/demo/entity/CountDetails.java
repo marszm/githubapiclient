@@ -23,6 +23,4 @@ public class CountDetails {
         this.request_count = 1;
         this.login = login;
     }
-
-
 }
