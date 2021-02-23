@@ -13,7 +13,7 @@ public class UserService {
     public UserDto getUser(String login) {
         UserDto userDto = restTemplate.getForObject(GIT_URL + login, UserDto.class);
         assert userDto != null;
-        userDto.setCalculations(userDto.getFollowers() + userDto.getPublic_repos());
+        userDto.setCalculations((6 / userDto.getFollowers()) + (2 + userDto.getPublic_repos()));
         return userDto;
     }
 
