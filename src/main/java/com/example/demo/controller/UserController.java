@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.CountDetails;
 import com.example.demo.model.UserDto;
-import com.example.demo.repository.CountDetailsRepository;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,18 +15,10 @@ public class UserController {
 
     private final UserService userService;
 
-    private final CountDetailsRepository countDetailsRepository;
-
     @GetMapping("/{login}")
     public UserDto getUser(@PathVariable String login) {
 
-        CountDetails countDetails = countDetailsRepository.findByLogin(login);
-        if (countDetails != null) {
-            countDetails.setRequest_count(countDetails.getRequest_count() + 1);
-        } else {
-            countDetails = new CountDetails(login);
-        }
-        countDetailsRepository.save(countDetails);
+        userService.saveUser(login);
         return userService.getUser(login);
 
     }
