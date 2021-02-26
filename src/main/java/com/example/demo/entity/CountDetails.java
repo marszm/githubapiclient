@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -16,10 +17,10 @@ public class CountDetails {
     private String login;
 
     @GeneratedValue
-    private Integer request_count;
+    private BigDecimal request_count;
 
     public CountDetails(String login) {
-        this.request_count = 1;
+        this.request_count = new BigDecimal(1);
         this.login = login;
     }
 }

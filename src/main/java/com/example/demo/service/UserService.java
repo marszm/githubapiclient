@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -27,7 +29,7 @@ public class UserService {
     public void saveUser(String login) {
         CountDetails countDetails = countDetailsRepository.findByLogin(login);
         if (countDetails != null) {
-            countDetails.setRequest_count(countDetails.getRequest_count() + 1);
+            countDetails.setRequest_count(countDetails.getRequest_count().add(new BigDecimal(1)));
         } else {
             countDetails = new CountDetails(login);
         }
