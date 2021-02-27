@@ -17,7 +17,7 @@ public class UserService {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    private final   CountDetailsRepository countDetailsRepository;
+    private final CountDetailsRepository countDetailsRepository;
 
     public UserDto getUser(String login) {
         UserDto userDto = restTemplate.getForObject(GIT_URL + login, UserDto.class);
